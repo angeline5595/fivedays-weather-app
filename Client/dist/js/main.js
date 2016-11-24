@@ -20759,16 +20759,14 @@ module.exports = require('./lib/React');
 var React=require('react');
 var obj1={};
 var Weather2=require('./Weather2');
-var Weather1=React.createClass({displayName: "Weather1",
-  
+var Weather1=React.createClass({displayName: "Weather1",  
   render:function()
   {
-    var arr1=[];
-    var datetime='';
-    var desc='';
-    loop=this.props.details.list;
-    loop.forEach(function(msd) {
-      
+      var arr1=[];
+      var datetime='';
+      var desc='';
+      loop=this.props.details.list;
+      loop.forEach(function(msd) {     
       var datetime=msd.dt_txt;
       var str=datetime.split(" ");
       var stdate=str[0];
@@ -20787,24 +20785,23 @@ return(
   React.createElement("div", {id: "tab1"}, 
   React.createElement("h2", {id: "tab2"}, "Five days weather details in ", React.createElement("b", null, this.props.cities), " for every 3hr intervals"), 
   React.createElement("table", null, 
- React.createElement("thead", null, 
-  React.createElement("tr", null, 
-  React.createElement("th", null, "FiveDays Date"), 
-  React.createElement("th", null, "Time"), 
-  React.createElement("th", null, "Description"), 
-  React.createElement("th", null, "Temperature in Celsius"), 
-  React.createElement("th", null, "Temperature Min in Celsius"), 
-  React.createElement("th", null, "Temperature Max in Celsius"), 
-  React.createElement("th", null, "Wind Speed in m/sec"), 
-  React.createElement("th", null, "Cloudiness in %"), 
-  React.createElement("th", null, "Pressure in hpa"), 
-  React.createElement("th", null, "Humidity in %")
-  )
-  ), 
-  React.createElement("tbody", null, 
-    arr1
-  
-  )
+    React.createElement("thead", null, 
+      React.createElement("tr", null, 
+        React.createElement("th", null, "FiveDays Date"), 
+        React.createElement("th", null, "Time"), 
+        React.createElement("th", null, "Description"), 
+        React.createElement("th", null, "Temperature in Celsius"), 
+        React.createElement("th", null, "Temperature Min in Celsius"), 
+        React.createElement("th", null, "Temperature Max in Celsius"), 
+        React.createElement("th", null, "Wind Speed in m/sec"), 
+        React.createElement("th", null, "Cloudiness in %"), 
+        React.createElement("th", null, "Pressure in hpa"), 
+        React.createElement("th", null, "Humidity in %")
+      )
+    ), 
+    React.createElement("tbody", null, 
+      arr1
+    )
   )
   )       
         );
@@ -20819,16 +20816,16 @@ var Weather2=React.createClass({displayName: "Weather2",
   {
 return(
   React.createElement("tr", null, 
-  React.createElement("td", null, this.props.dates), 
-  React.createElement("td", null, this.props.time), 
-  React.createElement("td", null, this.props.desc1), 
-  React.createElement("td", null, this.props.temp1), 
-  React.createElement("td", null, this.props.tempmin1), 
-  React.createElement("td", null, this.props.tempmax1), 
-  React.createElement("td", null, this.props.wind1), 
-  React.createElement("td", null, this.props.cloud1), 
-  React.createElement("td", null, this.props.pressure1), 
-  React.createElement("td", null, this.props.humidity1)
+    React.createElement("td", null, this.props.dates), 
+    React.createElement("td", null, this.props.time), 
+    React.createElement("td", null, this.props.desc1), 
+    React.createElement("td", null, this.props.temp1), 
+    React.createElement("td", null, this.props.tempmin1), 
+    React.createElement("td", null, this.props.tempmax1), 
+    React.createElement("td", null, this.props.wind1), 
+    React.createElement("td", null, this.props.cloud1), 
+    React.createElement("td", null, this.props.pressure1), 
+    React.createElement("td", null, this.props.humidity1)
   )
   );
 }
@@ -20843,46 +20840,35 @@ var Weather=React.createClass({displayName: "Weather",
      return({datas:[],city:''})
    },
    getData:function(){
-
-     this.setState({city:this.refs.city.value});
-     $.ajax({
+      this.setState({city:this.refs.city.value});
+      $.ajax({
       url: 'http://api.openweathermap.org/data/2.5/forecast?q='+this.refs.city.value+'&appid=1b229d06e261f769c3a692257c928c00',
       dataType: 'json',
       async:false,
       type: 'GET',
       success: function(data)
-      {
-        
-          
+      {       
           this.setState({datas:data});
           loadeddata=true;
-
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error(err.toString());
+          alert("enter the correct city");
+          console.error(err.toString());
       }.bind(this),
    });
-
  },
-
   render:function(){
-     var wd;
+    var wd;
     if(loadeddata)
-    {
-      
+    {      
       wd=React.createElement(Weather1, {details: this.state.datas, cities: this.state.city});
     }
-
     return(
       React.createElement("div", null, 
-          
       React.createElement("h1", {id: "head"}, React.createElement("b", null, "5 Day Weather Forecast")), 
       React.createElement("input", {type: "text", className: "form-control", id: "search", ref: "city", placeholder: "Enter the city Name"}), 
-    
       React.createElement("button", {type: "submit", className: "btn btn-default", id: "button", onClick: this.getData}, "Search"), 
         wd
- 
-  
       )
     );
   }
