@@ -10,7 +10,7 @@ A front end weather forecast application will gives you the details of temperatu
      
      3.Inside client folder,run the following command:
           
-          npm install gulp
+         npm install gulp
      
                  or
          
@@ -29,22 +29,22 @@ A front end weather forecast application will gives you the details of temperatu
     6.In web server,visit localhost:8080 to start the application.
     
 # Outcomes:
-     
-    ![capture](https://cloud.githubusercontent.com/assets/20534030/20621510/cbe337d6-b324-11e6-9a6e-aa325d45ae38.PNG) 
+ 
+  https://cloud.githubusercontent.com/assets/20534030/20621675/63cfbe02-b325-11e6-89d8-588182b833d6.PNG  
     
-    I feel that I have demonstrated the following:
+      I feel that I have demonstrated the following:
     
-    1.Basic of RESTfull API
+      1.Basic of RESTfull API
     
-    2.Implemented REACT JS and its concepts.
+      2.Implemented REACT JS and its concepts.
     
-    3.Implemented Html5 and Css3.
+      3.Implemented Html5 and Css3.
     
-   Given more time,I would like to demonstrate
+    Given more time,I would like to demonstrate
    
-    1.responsive design
+        1.responsive design
     
-    2.knowledge of testing.
+        2.knowledge of testing.
      
 
 
